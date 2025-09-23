@@ -29,6 +29,9 @@
         "image": "./assets/images/icon-1920x720.png"
       }
     },
+    "web": {
+      "bundler": "metro"
+    },
     "newArchEnabled": true,
     "name": "roomService",
     "slug": "roomService"
