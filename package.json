@@ -1,12 +1,12 @@
 {
-  "name": "mytvproject",
+  "name": "roomservice",
   "version": "1.0.0",
   "scripts": {
-    "start": "EXPO_TV=1 expo start",
-    "android": "EXPO_TV=1 expo run:android",
-    "ios": "EXPO_TV=1 expo run:ios",
+    "start": "cross-env EXPO_TV=1 expo start",
+    "android": "cross-env EXPO_TV=1 expo run:android",
+    "ios": "cross-env EXPO_TV=1 expo run:ios",
     "web": "expo start --web",
-    "prebuild:tv": "EXPO_TV=1 expo prebuild --clean",
+    "prebuild:tv": "cross-env EXPO_TV=1 expo prebuild --clean",
     "prebuild": "expo prebuild --clean"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@react-native-tvos/config-tv": "^0.1.4",
     "@types/react": "~19.1.10",
+    "cross-env": "^10.0.0",
     "typescript": "~5.9.2"
   },
   "expo": {

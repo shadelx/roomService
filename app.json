@@ -21,7 +21,8 @@
       "edgeToEdgeEnabled": true,
       "splash": {
         "image": "./assets/images/icon-1920x720.png"
-      }
+      },
+      "package": "com.anonymous.roomService"
     },
     "ios": {
       "splash": {
@@ -29,7 +30,7 @@
       }
     },
     "newArchEnabled": true,
-    "name": "MyTVProject",
-    "slug": "MyTVProject"
+    "name": "roomService",
+    "slug": "roomService"
   }
 }
