@@ -21,21 +21,21 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
   return (
     <TouchableOpacity
-      className="bg-gray-800 rounded-xl m-2 p-2 flex-1"
+      className="bg-gray-800 m-2 p-4 rounded-sm shadow-lg flex-1 transform hover:scale-105"
       onPress={() => navigation.navigate('ProductDetails', { product })}
     >
       <Image
         source={{ uri: product.image }}
-        className="w-full h-32 rounded-lg mb-2"
+        className="w-full h-40 rounded-sm mb-3"
         resizeMode="cover"
       />
-      <Text className="text-white font-bold">{product.name}</Text>
-      <Text className="text-gray-400">${product.price}</Text>
+      <Text className="text-white font-bold text-lg mb-1">{product.name}</Text>
+      <Text className="text-gray-400 mb-3">${product.price}</Text>
       <TouchableOpacity
-        className="bg-green-600 rounded-lg p-2 mt-2"
+        className="bg-indigo-600 rounded-sm py-2 shadow-md"
         onPress={() => addToCart(product)}
       >
-        <Text className="text-white text-center font-bold">Add</Text>
+        <Text className="text-white font-bold text-center">Add to Cart</Text>
       </TouchableOpacity>
     </TouchableOpacity>
   );

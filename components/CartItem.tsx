@@ -12,10 +12,10 @@ const CartItem: React.FC<{
   const { increaseQuantity, decreaseQuantity } = useCart();
 
   return (
-    <View className="flex-row items-center bg-gray-800 rounded-xl m-2 p-2 shadow-lg">
+    <View className="flex-row items-center bg-gray-800 rounded-sm m-2 p-2 shadow-lg">
       <Image
         source={{ uri: image }}
-        className="w-20 h-20 rounded-lg mr-3"
+        className="w-20 h-20 rounded-sm mr-3"
         resizeMode="cover"
       />
       <View className="flex-1">
