@@ -20,29 +20,30 @@ const CheckoutScreen: React.FC = () => {
   if (success) return <CheckoutSuccess />;
 
   return (
-    <View className="flex-1 bg-black p-6">
-      <Text className="text-white text-2xl font-bold mb-6">Checkout</Text>
+    <View className="flex-1 bg-black p-6 justify-center">
+      <View className="bg-gray-900 rounded-sm p-6 shadow-lg">
+        <Text className="text-white text-3xl font-bold mb-6">Checkout</Text>
+        <Text className="text-white text-lg mb-2">
+          You have {cartItems.length} items in your cart.
+        </Text>
+        <Text className="text-white text-2xl font-bold mb-6">
+          Total: ${totalPrice.toFixed(2)}
+        </Text>
 
-      <Text className="text-white text-lg mb-4">
-        You have {cartItems.length} items in your cart.
-      </Text>
-      <Text className="text-white text-xl font-bold mb-6">
-        Total: ${totalPrice.toFixed(2)}
-      </Text>
-
-      <TouchableOpacity
-        className="bg-green-600 rounded-xl p-4"
-        onPress={handleCheckout}
-        disabled={loading}
-      >
-        {loading ? (
-          <ActivityIndicator color="#fff" />
-        ) : (
-          <Text className="text-white text-center text-lg font-bold">
-            Confirm & Pay
-          </Text>
-        )}
-      </TouchableOpacity>
+        <TouchableOpacity
+          className="bg-indigo-600 rounded-sm py-4 shadow-md"
+          onPress={handleCheckout}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text className="text-white font-bold text-center text-lg">
+              Confirm & Pay
+            </Text>
+          )}
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
