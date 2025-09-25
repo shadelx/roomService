@@ -1,58 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { useCart } from '../context/CartContext';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../App';
 
-type CartItem = {
-  id: string;
-  name: string;
-  price: string;
-  quantity: number;
-  image: string;
-};
-
-const initialCart: CartItem[] = [
-  {
-    id: '1',
-    name: 'Samsung QLED TV',
-    price: '1200',
-    quantity: 1,
-    image: 'https://via.placeholder.com/150',
-  },
-  {
-    id: '2',
-    name: 'LG OLED TV',
-    price: '1500',
-    quantity: 2,
-    image: 'https://via.placeholder.com/150',
-  },
-];
+type CartScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Cart'
+>;
 
 const CartScreen: React.FC = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(initialCart);
+  const navigation = useNavigation<CartScreenNavigationProp>();
 
-  const increaseQuantity = (id: string) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
+  const { cartItems, increaseQuantity, decreaseQuantity, totalPrice } =
+    useCart();
 
-  const decreaseQuantity = (id: string) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
-  };
-
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + parseFloat(item.price) * item.quantity,
-    0
-  );
-
-  const renderItem = ({ item }: { item: CartItem }) => (
+  const renderItem = ({ item }: any) => (
     <View className="flex-row items-center bg-gray-800 rounded-xl m-2 p-2 shadow-lg">
       <Image
         source={{ uri: item.image }}
@@ -94,7 +58,10 @@ const CartScreen: React.FC = () => {
         <Text className="text-white text-lg font-bold mb-2">
           Total: ${totalPrice.toFixed(2)}
         </Text>
-        <TouchableOpacity className="bg-green-600 hover:bg-green-500 active:bg-green-700 rounded-xl p-4">
+        <TouchableOpacity
+          className="bg-green-600 rounded-xl p-4"
+          onPress={() => navigation.navigate('Checkout')}
+        >
           <Text className="text-white font-bold text-center text-lg">
             Checkout
           </Text>
