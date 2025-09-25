@@ -8,6 +8,7 @@ import ProductDetailsScreen from './screens/ProductDetailsScreen';
 import CartScreen from './screens/CartScreen';
 import { CartProvider, useCart } from './context/CartContext';
 import CheckoutScreen from './screens/CheckoutScreen';
+import CartButton from './components/CartButton';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -25,26 +26,6 @@ export type RootStackParamList = {
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-// 🔹 Custom Cart Button with Badge
-const CartButton = ({ navigation }: { navigation: any }) => {
-  const { cartItems } = useCart();
-  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('Cart')}
-      className="px-3 py-1 bg-green-600 rounded-lg relative"
-    >
-      <Text className="text-white font-bold">Cart</Text>
-      {totalCount > 0 && (
-        <View className="absolute -top-2 -right-2 bg-red-600 rounded-full w-6 h-6 flex items-center justify-center">
-          <Text className="text-white text-xs font-bold">{totalCount}</Text>
-        </View>
-      )}
-    </TouchableOpacity>
-  );
-};
 
 const App = () => {
   return (

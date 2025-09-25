@@ -1,26 +1,15 @@
-// screens/CheckoutScreen.tsx
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useCart } from '../context/CartContext';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../App';
-
-type CheckoutNavProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'Checkout'
->;
+import CheckoutSuccess from '../components/CheckoutSuccess';
 
 const CheckoutScreen: React.FC = () => {
   const { cartItems, totalPrice, clearCart } = useCart();
-  const navigation = useNavigation<CheckoutNavProp>();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const handleCheckout = () => {
     setLoading(true);
-
-    // Simulate payment process
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
@@ -28,27 +17,7 @@ const CheckoutScreen: React.FC = () => {
     }, 2000);
   };
 
-  if (success) {
-    return (
-      <View className="flex-1 bg-black items-center justify-center p-6">
-        <Text className="text-green-500 text-2xl font-bold mb-4">
-          🎉 Order Placed Successfully!
-        </Text>
-        <Text className="text-white text-lg mb-6">
-          Thank you for your purchase.
-        </Text>
-
-        <TouchableOpacity
-          className="bg-blue-600 rounded-xl px-6 py-3"
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Text className="text-white font-bold text-lg">
-            Continue Shopping
-          </Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  if (success) return <CheckoutSuccess />;
 
   return (
     <View className="flex-1 bg-black p-6">
