@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         {navItems.map((item) => (
           <TouchableOpacity
             key={item.label}
-            className="py-3 px-2 mb-2 rounded-sm bg-gray-800 flex-row items-center"
+            className="py-3 px-2 mb-2 rounded-sm flex-row items-center"
             onPress={item.action}
           >
             <FontAwesome5 name={item.icon as any} size={20} color="white" />

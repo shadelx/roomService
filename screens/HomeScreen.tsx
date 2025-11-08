@@ -24,9 +24,11 @@ const HomeScreen: React.FC = () => {
         data={filteredProducts}
         renderItem={({ item }) => <ProductCard product={item} />}
         keyExtractor={(item) => item.id}
-        numColumns={2}
+        numColumns={5}
         contentContainerStyle={{ padding: 16 }}
         className="flex-1"
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       />
     </View>
   );

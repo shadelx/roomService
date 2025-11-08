@@ -4,7 +4,7 @@ export const products = [
     name: 'TV Model 1',
     price: '1200',
     description: 'Smart TV',
-    image: require('../assets/images/product.png'),
+    image: 'https://placehold.co/400',
     category: 'TVs',
   },
   {
@@ -12,7 +12,7 @@ export const products = [
     name: 'Laptop Model 1',
     price: '1500',
     description: 'High-performance Laptop',
-    image: 'https://via.placeholder.com/300',
+    image: 'https://placehold.co/400',
     category: 'Laptops',
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     name: 'Phone Model 1',
     price: '800',
     description: 'Latest smartphone',
-    image: 'https://via.placeholder.com/300',
+    image: 'https://placehold.co/400',
     category: 'Phones',
   },
   {
@@ -28,10 +28,24 @@ export const products = [
     name: 'Headphones',
     price: '200',
     description: 'Noise-canceling headphones',
-    image: 'https://via.placeholder.com/300',
+    image: 'https://placehold.co/400',
+    category: 'Accessories',
+  },
+  {
+    id: '5',
+    name: 'Headphones',
+    price: '200',
+    description: 'Noise-canceling headphones',
+    image: 'https://placehold.co/400',
     category: 'Accessories',
   },
   // Add more products as needed
 ];
 
-export const categories = ['All', 'TVs', 'Laptops', 'Phones', 'Accessories'];
+export const categories = [
+  'All',
+  'Alimentos',
+  'Artículos',
+  'Bebidas',
+  'Combos',
+];
