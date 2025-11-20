@@ -9,11 +9,11 @@ const CartButton = ({ navigation }: { navigation: any }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('Cart')}
-      className="px-3 py-1 bg-green-600 rounded-lg relative"
+      className="px-10 py-2 bg-indigo-600 rounded-sm relative mr-5"
     >
       <Text className="text-white font-bold">Cart</Text>
       {totalCount > 0 && (
-        <View className="absolute -top-2 -right-2 bg-red-600 rounded-full w-6 h-6 flex items-center justify-center">
+        <View className="absolute -top-2 -right-2 bg-red-600 rounded-sm w-6 h-6 flex items-center justify-center">
           <Text className="text-white text-xs font-bold">{totalCount}</Text>
         </View>
       )}
